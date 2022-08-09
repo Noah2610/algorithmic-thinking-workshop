@@ -1,36 +1,33 @@
 /**
  * This function gets a list of positive and negative numbers.
- * It should return an array with two values:
+ * It should print two values:
  *   The _count_ of all _positive_ numbers
  *   The _sum_ of all _negative_ numbers
  *
  * @param {number[]} list
- * @returns [number, number]
  */
 function countPositivesAndSumNegatives(list) {
-    let countPositiveNumbers = 0;
-    let sumNegativeNumbers = 0;
+    let counterPositive = 0;
+    let sumNegative = 0;
 
+    // loop through numbers in list
     for (let i = 0; i < list.length; i++) {
-        const num = list[i];
-        // if num is zero, skip
-        if (num === 0) {
-            continue;
+        // if positive: count positive numbers
+        if (list[i] > 0) {
+            counterPositive += 1;
         }
 
-        // if num is positive, increment positives count
-        if (num > 0) {
-            countPositiveNumbers++;
-        }
-
-        // if num is negative, add to sum of negatives
-        if (num < 0) {
-            sumNegativeNumbers += num;
+        // if netgative: add negative numbers
+        if (list[i] < 0) {
+            sumNegative += list[i];
         }
     }
 
-    return [countPositiveNumbers, sumNegativeNumbers];
+    // output our values
+    console.log(counterPositive, sumNegative);
+
+    return [counterPositive, sumNegative];
 }
 
 const exampleList = [5, -3, 7, -2, 1];
-console.log(countPositivesAndSumNegatives(exampleList));
+countPositivesAndSumNegatives(exampleList);
